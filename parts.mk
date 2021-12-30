@@ -1,4 +1,4 @@
-# RealmeParts
+# OnePlusParts
 PRODUCT_PACKAGES += \
-    RealmeParts \
+    OnePlusParts \
 	parts.rc
