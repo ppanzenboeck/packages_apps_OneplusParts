@@ -160,7 +160,7 @@
             android:icon="@drawable/ic_vibration"
             android:entries="@array/vibration_strength_entries"
             android:entryValues="@array/vibration_strength_values"
-            android:defaultValue="2500" />
+            android:defaultValue="0" />
 			
         <SwitchPreference
             android:icon="@drawable/usb_otg_icon"
