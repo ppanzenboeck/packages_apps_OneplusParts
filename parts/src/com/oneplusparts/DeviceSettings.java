@@ -55,7 +55,6 @@ public class DeviceSettings extends PreferenceFragment
     public static final String KEY_CHARGING_SWITCH = "smart_charging";
     public static final String KEY_CHARGING_SPEED = "charging_speed";
     public static final String KEY_RESET_STATS = "reset_stats";
-    public static final String KEY_DT2W_SWITCH = "dt2w";
     public static final String KEY_DND_SWITCH = "dnd";
     public static final String KEY_CABC = "cabc";
     public static final String CABC_SYSTEM_PROPERTY = "persist.cabc_profile";
@@ -68,7 +67,6 @@ public class DeviceSettings extends PreferenceFragment
     public static SecureSettingListPreference mChargingSpeed;
     public static TwoStatePreference mResetStats;
     public static TwoStatePreference mRefreshRate90Forced;
-	private static TwoStatePreference mDT2WModeSwitch;
     public static RadioButtonPreference mRefreshRate90;
     public static RadioButtonPreference mRefreshRate60;
     public static SeekBarPreference mSeekBarPreference;
@@ -161,11 +159,6 @@ public class DeviceSettings extends PreferenceFragment
         mCABC.setValue(Utils.getStringProp(CABC_SYSTEM_PROPERTY, "0"));
         mCABC.setSummary(mCABC.getEntry());
         mCABC.setOnPreferenceChangeListener(this);
-
-        mDT2WModeSwitch = (TwoStatePreference) findPreference(KEY_DT2W_SWITCH);
-        mDT2WModeSwitch.setEnabled(DT2WModeSwitch.isSupported());
-        mDT2WModeSwitch.setChecked(DT2WModeSwitch.isCurrentlyEnabled(this.getContext()));
-        mDT2WModeSwitch.setOnPreferenceChangeListener(new DT2WModeSwitch());
 
         mVibStrength = (SecureSettingListPreference) findPreference(KEY_VIBRATION_STRENGTH);
         mVibStrength.setValue(Utils.getStringProp(VIB_STRENGTH_SYSTEM_PROPERTY, "0"));
