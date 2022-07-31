@@ -74,12 +74,6 @@
             android:title="@string/hbm_mode_title" />
 
         <SwitchPreference
-            android:icon="@drawable/srgb_mode_icon"
-            android:key="srgb"
-            android:summary="@string/srgb_mode_summary"
-            android:title="@string/srgb_mode_title" />
-
-        <SwitchPreference
             android:icon="@drawable/game_mode_icon"
             android:key="game"
             android:summary="@string/game_mode_summary"
