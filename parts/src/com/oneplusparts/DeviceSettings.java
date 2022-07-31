@@ -53,8 +53,6 @@ public class DeviceSettings extends PreferenceFragment
     public static final String KEY_CHARGING_SWITCH = "smart_charging";
     public static final String KEY_CHARGING_SPEED = "charging_speed";
     public static final String KEY_RESET_STATS = "reset_stats";
-    public static final String KEY_CABC = "cabc";
-    public static final String CABC_SYSTEM_PROPERTY = "persist.cabc_profile";
     public static final String KEY_SETTINGS_PREFIX = "device_setting_";
     public static final String TP_DIRECTION = "/proc/touchpanel/oplus_tp_direction";
     private static final String ProductName = Utils.ProductName();
@@ -74,10 +72,8 @@ public class DeviceSettings extends PreferenceFragment
     private TwoStatePreference mHBMModeSwitch;
     private TwoStatePreference mOTGModeSwitch;
     private TwoStatePreference mSmartChargingSwitch;
-    private boolean CABC_DeviceMatched;
     private boolean DC_DeviceMatched;
     private boolean HBM_DeviceMatched;
-    private SecureSettingListPreference mCABC;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -85,8 +81,6 @@ public class DeviceSettings extends PreferenceFragment
         prefs.edit().putString("ProductName", ProductName).apply();
 
         addPreferencesFromResource(R.xml.main);
-
-        mVibrator = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
 
         mDCModeSwitch = findPreference(KEY_DC_SWITCH);
         mDCModeSwitch.setEnabled(DCModeSwitch.isSupported());
@@ -124,11 +118,6 @@ public class DeviceSettings extends PreferenceFragment
         mRefreshRate90Forced.setChecked(prefs.getBoolean("refresh_rate_90Forced", false));
         mRefreshRate90Forced.setOnPreferenceChangeListener(new RefreshRateSwitch(getContext()));
 
-        mCABC = (SecureSettingListPreference) findPreference(KEY_CABC);
-        mCABC.setValue(Utils.getStringProp(CABC_SYSTEM_PROPERTY, "0"));
-        mCABC.setSummary(mCABC.getEntry());
-        mCABC.setOnPreferenceChangeListener(this);
-
         mVibStrength = (SecureSettingListPreference) findPreference(KEY_VIBRATION_STRENGTH);
         mVibStrength.setValue(Utils.getStringProp(VIB_STRENGTH_SYSTEM_PROPERTY, "0"));
         mVibStrength.setSummary(mVibStrength.getEntry());
@@ -145,12 +134,6 @@ public class DeviceSettings extends PreferenceFragment
         if (preference == mChargingSpeed) {
             mChargingSpeed.setValue((String) newValue);
             mChargingSpeed.setSummary(mChargingSpeed.getEntry());
-        }
-
-        if (preference == mCABC) {
-            mCABC.setValue((String) newValue);
-            mCABC.setSummary(mCABC.getEntry());
-            Utils.setStringProp(CABC_SYSTEM_PROPERTY, (String) newValue);
         }
 
 	if (preference == mVibStrength) {
