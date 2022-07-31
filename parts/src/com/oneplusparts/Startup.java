@@ -52,8 +52,6 @@ public class Startup extends BroadcastReceiver {
         DozeUtils.checkDozeService(context);
         boolean enabled = false;
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_DC_SWITCH, false);
-        restore(DCModeSwitch.getFile(), enabled);
         enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_OTG_SWITCH, false);
         restore(OTGModeSwitch.getFile(), enabled);
         enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_HBM_SWITCH, false);

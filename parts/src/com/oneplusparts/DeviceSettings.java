@@ -46,7 +46,6 @@ public class DeviceSettings extends PreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     public static final String KEY_HBM_SWITCH = "hbm";
-    public static final String KEY_DC_SWITCH = "dc";
     public static final String KEY_OTG_SWITCH = "otg";
     public static final String KEY_VIBRATION_STRENGTH = "vibration_strength";
     public static final String VIB_STRENGTH_SYSTEM_PROPERTY = "persist.vib_strength";
@@ -68,11 +67,9 @@ public class DeviceSettings extends PreferenceFragment
     public PreferenceCategory mPreferenceCategory;
     private Vibrator mVibrator;
     private SecureSettingListPreference mVibStrength;
-    private TwoStatePreference mDCModeSwitch;
     private TwoStatePreference mHBMModeSwitch;
     private TwoStatePreference mOTGModeSwitch;
     private TwoStatePreference mSmartChargingSwitch;
-    private boolean DC_DeviceMatched;
     private boolean HBM_DeviceMatched;
 
     @Override
@@ -81,11 +78,6 @@ public class DeviceSettings extends PreferenceFragment
         prefs.edit().putString("ProductName", ProductName).apply();
 
         addPreferencesFromResource(R.xml.main);
-
-        mDCModeSwitch = findPreference(KEY_DC_SWITCH);
-        mDCModeSwitch.setEnabled(DCModeSwitch.isSupported());
-        mDCModeSwitch.setChecked(DCModeSwitch.isCurrentlyEnabled(this.getContext()));
-        mDCModeSwitch.setOnPreferenceChangeListener(new DCModeSwitch());
 
         mHBMModeSwitch = (TwoStatePreference) findPreference(KEY_HBM_SWITCH);
         mHBMModeSwitch.setEnabled(HBMModeSwitch.isSupported());
