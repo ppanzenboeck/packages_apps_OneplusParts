@@ -46,11 +46,14 @@
     <string name="refresh_title">Screen Refresh Rate</string>
     <string name="refresh_rate_90Forced_title">Force 90Hz Refresh Rate</string>
     <string name="refresh_rate_90Forced_summary">Force display to 90Hz which improves animation quality. Heavily increases battery usage. Reboot device manually after disabling. </string>
-	<!-- Vibration Strength -->
+    <!-- Vibration Strength -->
     <string name="vibration_strength_title">Vibration Strength</string>
     <string name="vibration_strength_low">Low</string>
     <string name="vibration_strength_medium">Medium</string>
     <string name="vibration_strength_high">High (default)</string>
+    <!-- Hyper threading mode -->
+    <string name="hyper_threading_mode_summary">Reduce system UI lagging as possible, may increase battery consume.</string>
+    <string name="hyper_threading_mode_title">Enable Hyper-threading mode</string>
 	
     <!-- Unsupported -->
     <string name="unsupported">Unsupported</string>

@@ -99,6 +99,11 @@
             android:key="otg"
             android:summary="@string/otg_mode_summary"
             android:title="@string/otg_mode_title" />
+        
+        <SwitchPreference
+            android:key="hyper_threading_mode"
+            android:summary="@string/hyper_threading_mode_summary"
+            android:title="@string/hyper_threading_mode_title" />
 
     </PreferenceCategory>
 </PreferenceScreen>

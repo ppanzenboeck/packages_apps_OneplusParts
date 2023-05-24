@@ -243,6 +243,14 @@ public class Utils {
         return SystemProperties.getInt(prop, defaultValue);
     }
 
+    static void setBooleanProp(String prop, boolean value) {
+        SystemProperties.set(prop, String.valueOf(value));
+    }
+
+    static boolean getBooleanProp(String prop, boolean defaultValue) {
+        return SystemProperties.getBoolean(prop, defaultValue);
+    }
+
     /**
      * Returns true if the current thread is the UI thread.
      */
