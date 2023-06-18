@@ -64,10 +64,6 @@ public class Startup extends BroadcastReceiver {
         if (enabled) {
             RefreshRateSwitch.setForcedRefreshRate(1);
         }
-        enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_HBM_SWITCH, false);
-        if (enabled) {
-            Utils.startService(context, HBMService.class);
-        }
     }
 
     private boolean hasRestoredTunable(Context context) {
