@@ -64,6 +64,10 @@ public class Startup extends BroadcastReceiver {
         if (enabled) {
             RefreshRateSwitch.setForcedRefreshRate(1);
         }
+
+        // Retrive display color on boot
+        enabled = Utils.getBooleanProp(DeviceSettings.DISPLAY_COLOR_SYSTEM_PROPERTY, false);
+        DisplayColorModeSwitch.updateDisplayColorMode(enabled);
     }
 
     private boolean hasRestoredTunable(Context context) {

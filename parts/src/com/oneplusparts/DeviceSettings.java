@@ -49,8 +49,8 @@ public class DeviceSettings extends PreferenceFragment
     public static final String KEY_OTG_SWITCH = "otg";
     public static final String KEY_VIBRATION_STRENGTH = "vibration_strength";
     public static final String VIB_STRENGTH_SYSTEM_PROPERTY = "persist.vib_strength";
-    public static final String KEY_HYPER_THREADING = "hyper_threading_mode";
-    public static final String HYPER_THREADING_SYSTEM_PROPERTY = "persist.sys.dalvik.multithread";
+    public static final String KEY_DISPLAY_COLOR_SWITCH = "low_saturation_mode";
+    public static final String DISPLAY_COLOR_SYSTEM_PROPERTY = "persist.sys.low_saturation_mode";
     public static final String KEY_CHARGING_SWITCH = "smart_charging";
     public static final String KEY_CHARGING_SPEED = "charging_speed";
     public static final String KEY_RESET_STATS = "reset_stats";
@@ -64,6 +64,7 @@ public class DeviceSettings extends PreferenceFragment
     public static TwoStatePreference mResetStats;
     public static TwoStatePreference mRefreshRate90Forced;
     public static SeekBarPreference mSeekBarPreference;
+    public static TwoStatePreference mDisplayColorSwitch;
     public static DisplayManager mDisplayManager;
     private static NotificationManager mNotificationManager;
     public PreferenceCategory mPreferenceCategory;
@@ -72,7 +73,6 @@ public class DeviceSettings extends PreferenceFragment
     private TwoStatePreference mHBMModeSwitch;
     private TwoStatePreference mOTGModeSwitch;
     private TwoStatePreference mSmartChargingSwitch;
-    private TwoStatePreference mHyperThreadingSwitch;
     private boolean HBM_DeviceMatched;
 
     @Override
@@ -115,9 +115,9 @@ public class DeviceSettings extends PreferenceFragment
 
         mVibrator = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
 
-        mHyperThreadingSwitch = findPreference(KEY_HYPER_THREADING);
-        mHyperThreadingSwitch.setChecked(Utils.getBooleanProp(HYPER_THREADING_SYSTEM_PROPERTY, false));
-        mHyperThreadingSwitch.setOnPreferenceChangeListener(this);
+        mDisplayColorSwitch = findPreference(KEY_DISPLAY_COLOR_SWITCH);
+        mDisplayColorSwitch.setChecked(Utils.getBooleanProp(DISPLAY_COLOR_SYSTEM_PROPERTY, false));
+        mDisplayColorSwitch.setOnPreferenceChangeListener(new DisplayColorModeSwitch(getContext()));
 
         isCoolDownAvailable();
     }
@@ -137,8 +137,6 @@ public class DeviceSettings extends PreferenceFragment
             mVibrator.vibrate(VibrationEffect.createOneShot(85, VibrationEffect.DEFAULT_AMPLITUDE));
         }
 
-	if (preference == mHyperThreadingSwitch) Utils.setBooleanProp(HYPER_THREADING_SYSTEM_PROPERTY, (boolean) newValue);
-	
         return true;
     }
 

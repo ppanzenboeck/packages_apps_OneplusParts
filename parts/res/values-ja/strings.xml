@@ -12,6 +12,6 @@
 -->
 <resources>
     <!-- Hyper threading mode -->
-    <string name="hyper_threading_mode_summary">システム全体の処理落ちを可能な限り軽減します。バッテリー消費量が増加する可能性があります。</string>
-    <string name="hyper_threading_mode_title">ハイパー・スレッディング</string>
+    <string name="low_saturation_mode_summary">ディスプレイの彩度を下げ、目に優しい色彩に調節します。</string>
+    <string name="low_saturation_mode_title">ディスプレイの彩度を下げる</string>
 </resources>

@@ -51,9 +51,9 @@
     <string name="vibration_strength_low">Low</string>
     <string name="vibration_strength_medium">Medium</string>
     <string name="vibration_strength_high">High (default)</string>
-    <!-- Hyper threading mode -->
-    <string name="hyper_threading_mode_summary">Reduce system UI lagging as possible, may increase battery consume.</string>
-    <string name="hyper_threading_mode_title">Enable Hyper-threading mode</string>
+    <!-- Low Saturation mode -->
+    <string name="low_saturation_mode_summary">Reduce display color saturation for eye-friendly screen.</string>
+    <string name="low_saturation_mode_title">Low saturation mode</string>
 	
     <!-- Unsupported -->
     <string name="unsupported">Unsupported</string>
