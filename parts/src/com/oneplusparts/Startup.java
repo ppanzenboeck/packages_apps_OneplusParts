@@ -54,8 +54,6 @@ public class Startup extends BroadcastReceiver {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_OTG_SWITCH, false);
         restore(OTGModeSwitch.getFile(), enabled);
-        enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_HBM_SWITCH, false);
-        restore(HBMModeSwitch.getFile(), enabled);
         enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_CHARGING_SWITCH, false);
         if (enabled) {
             Utils.startService(context, SmartChargingService.class);
@@ -63,10 +61,6 @@ public class Startup extends BroadcastReceiver {
         enabled = sharedPrefs.getBoolean("refresh_rate_90Forced", false);
         if (enabled) {
             RefreshRateSwitch.setForcedRefreshRate(1);
-        }
-        enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_HBM_SWITCH, false);
-        if (enabled) {
-            Utils.startService(context, HBMService.class);
         }
 
         // Retrive display color on boot

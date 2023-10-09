@@ -45,7 +45,6 @@ import java.text.DecimalFormat;
 public class DeviceSettings extends PreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
-    public static final String KEY_HBM_SWITCH = "hbm";
     public static final String KEY_OTG_SWITCH = "otg";
     public static final String KEY_VIBRATION_STRENGTH = "vibration_strength";
     public static final String VIB_STRENGTH_SYSTEM_PROPERTY = "persist.vib_strength";
@@ -70,10 +69,8 @@ public class DeviceSettings extends PreferenceFragment
     public PreferenceCategory mPreferenceCategory;
     private Vibrator mVibrator;
     private SecureSettingListPreference mVibStrength;
-    private TwoStatePreference mHBMModeSwitch;
     private TwoStatePreference mOTGModeSwitch;
     private TwoStatePreference mSmartChargingSwitch;
-    private boolean HBM_DeviceMatched;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -81,11 +78,6 @@ public class DeviceSettings extends PreferenceFragment
         prefs.edit().putString("ProductName", ProductName).apply();
 
         addPreferencesFromResource(R.xml.main);
-
-        mHBMModeSwitch = (TwoStatePreference) findPreference(KEY_HBM_SWITCH);
-        mHBMModeSwitch.setEnabled(HBMModeSwitch.isSupported());
-        mHBMModeSwitch.setChecked(HBMModeSwitch.isCurrentlyEnabled(this.getContext()));
-        mHBMModeSwitch.setOnPreferenceChangeListener(new HBMModeSwitch(getContext()));
 
         mOTGModeSwitch = (TwoStatePreference) findPreference(KEY_OTG_SWITCH);
         mOTGModeSwitch.setEnabled(OTGModeSwitch.isSupported());

@@ -82,17 +82,6 @@
 
         <!-- Quick Settings Tiles -->
         <service
-            android:name="com.oneplusparts.HBMModeTileService"
-            android:icon="@drawable/ic_hbm"
-            android:label="@string/tile_hbm_mode"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
-			android:exported="true">
-            <intent-filter>
-                <action
-                    android:name="android.service.quicksettings.action.QS_TILE"/>
-            </intent-filter>
-        </service>
-        <service
             android:name="com.oneplusparts.OtgToggleService"
             android:icon="@drawable/ic_otg_tile"
             android:label="@string/tile_otg_mode"
@@ -105,9 +94,6 @@
         </service>
 
         <service android:name="com.oneplusparts.SmartChargingService"
-                android:exported="false">
-        </service>
-        <service android:name="com.oneplusparts.HBMService"
                 android:exported="false">
         </service>
         <service android:name="com.oneplusparts.doze.DozeService"

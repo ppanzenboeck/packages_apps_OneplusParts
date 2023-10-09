@@ -34,10 +34,6 @@
     <string name="reset_stats_summary">Battery stats will get reset when charging limit is reached</string>
     <string name="smart_charging_status_notif">Smart Charging is running</string>
     <string name="smart_charging_stoppped_notif">Charging limit is reached, stopped charging</string>
-    <!-- HBM mode -->
-    <string name="hbm_mode_summary">Peak brightness for better visibility in outdoors</string>
-    <string name="hbm_mode_title">High brightness mode</string>
-    <string name="tile_hbm_mode">High brightness mode</string>
     <!-- otg mode -->
     <string name="otg_mode_summary">Enable USB-OTG power supply for external headphones and flash drives</string>
     <string name="otg_mode_title">Enable USB-OTG</string>
